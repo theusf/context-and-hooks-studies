@@ -1,18 +1,15 @@
 import React from 'react'
 import './style.css'
-import meusvg from '../../assets/meusvg.svg'
+import emoji from '../../assets/robot.svg'
 
 export default function SpleshScreen() {
 
     return (
         <>
             <div className="splash">
-                <div >
-                    <h1 className={"title"}> SplashScreen </h1>
-
-                   
-                        <img src={meusvg} className={"image"} />;
-
+                <div>
+                    <img src={emoji} className={"image"} />
+                    <h2 className={"title"}> Buscando token de autenticação </h2>
                 </div>
             </div>
 

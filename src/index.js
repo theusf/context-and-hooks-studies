@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-import AuthProvider from './services/auth'
-import LoadingProvider from './services/loading'
+import AuthProvider from './services/auth2'
+//import LoadingProvider from './services/loading'
 
 
 import Router from './routes'
@@ -13,13 +13,10 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <React.StrictMode>
 
-    <LoadingProvider>
 
       <AuthProvider>
         <Router />
       </AuthProvider>
-
-    </LoadingProvider>
     
   </React.StrictMode>,
   document.getElementById('root')

@@ -1,22 +1,26 @@
 import React from "react";
 
-import { useAuth } from '../services/auth'
-import { useLoading } from '../services/loading'
+//import { useAuth } from '../services/auth'
+//import { useLoading } from '../services/loading'
+import { useAuth } from '../services/auth2'
+
 
 import Login from '../Pages/Login'
 import Dash from '../Pages/Dash'
-import SplashCreen from '../Pages/Splesh'
+import SplashCreen from '../Pages/Splash'
+
+
 
 export default function Router() {
-  const { isLoged } = useAuth()
-  const { isLoading } = useLoading()
+  const { state } = useAuth()
 
   return (
     <>
-
-      {isLoading ? <SplashCreen /> : "true"}
-      
-      {isLoged ? <Dash /> : <Login />}
+      {
+      state.isLoading ? <SplashCreen /> : (
+        state.token ? <Dash /> : <Login />
+      )
+      }
 
     </>
   );

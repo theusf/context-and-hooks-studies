@@ -1,19 +1,14 @@
 import React from 'react';
 import './style.css';
 
-import { useAuth } from '../../services/auth'
+import { useAuth } from '../../services/auth2'
 import { useLoading } from '../../services/loading'
 
 function App() {
-  const { isLoged, toggleLogin } = useAuth();
-  const { setIsLoading } = useLoading();
-
-  setTimeout(function () {
-    setIsLoading(false)
-  }, 10000);
+  const { state, signIn  } = useAuth();
 
   function login(user, password) {
-    toggleLogin(true)
+    signIn()
   }
 
   return (
@@ -22,10 +17,10 @@ function App() {
 
       <div>
         <p style={{ backgroundColor: 'white' }}>
-          {isLoged}
+          {state.isLogged}
         </p>
 
-        <h1> Login  🐱‍💻 {isLoged.toString()}</h1>
+        <h1> Login  🐱‍💻 {state.isLogged}</h1>
 
         <input type="text" placeholder="user">
         </input>

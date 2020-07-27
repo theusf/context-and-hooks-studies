@@ -1,21 +1,13 @@
 import React from 'react';
 import './style.css';
 
-import { useAuth } from '../../services/auth'
-import { useLoading } from '../../services/loading'
+import { useAuth } from '../../services/auth2'
 
 export default function Dash() {
-    const { isLoged, toggleLogin } = useAuth()
-
-    const { setIsLoading } = useLoading();
-
-    setTimeout(function () {
-        setIsLoading(false)
-    }, 10000);
-
+    const { state, signOut } = useAuth()
 
     const logout = () => {
-        toggleLogin(false)
+        signOut();
     }
 
     return (
@@ -23,11 +15,13 @@ export default function Dash() {
         <div className="flex">
             <div>
                 <h1> Welcome  🐱‍💻</h1>
-                <h2> {isLoged.toString()} </h2>
 
                 <button onClick={logout}>
                     Sair
             </button>
+            <p>
+                {JSON.stringify(state)}
+            </p>
             </div>
         </div>
     );
