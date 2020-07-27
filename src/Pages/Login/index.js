@@ -1,11 +1,16 @@
 import React from 'react';
 import './style.css';
 
-import { useAuth } from '../../auth'
+import { useAuth } from '../../services/auth'
+import { useLoading } from '../../services/loading'
 
 function App() {
-
   const { isLoged, toggleLogin } = useAuth();
+  const { setIsLoading } = useLoading();
+
+  setTimeout(function () {
+    setIsLoading(false)
+  }, 10000);
 
   function login(user, password) {
     toggleLogin(true)
